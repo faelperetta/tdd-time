@@ -1,5 +1,4 @@
 # [Troco](http://dojopuzzles.com/problemas/exibe/troco/)
-Este problema foi utilizado em 150 Dojo(s).
 
 Funcionários de empresas comerciais que trabalham como caixa tem uma grande responsabilidade em suas mãos. A maior parte do tempo de seu expediente de trabalho é gasto recebendo valores de clientes e, em alguns casos, fornecendo troco.
 
