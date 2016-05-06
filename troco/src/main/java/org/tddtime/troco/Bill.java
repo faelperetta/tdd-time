@@ -27,13 +27,7 @@ public class Bill {
 
     public List<Double> pay(double paymentValue) {
 
-        if (paymentValue < 0) {
-            throw new IllegalArgumentException(MSG_NEGATIVE_PAYMENT_VALUE);
-        }
-
-        if (paymentValue < amount) {
-            throw new IllegalArgumentException(MSG_PAYMENT_VALUE_LESS_THAN_AMOUNT);
-        }
+        checkPaymentValue(paymentValue);
 
         List<Double> bankNotes = new ArrayList<>();
 
@@ -61,6 +55,20 @@ public class Bill {
 
         return bankNotes;
 
+    }
+
+    /**
+     * Verify if the payment value is valid, otherwise throw an {@link IllegalArgumentException}
+     * @param paymentValue
+     */
+    protected void checkPaymentValue(double paymentValue) {
+        if (paymentValue < 0) {
+            throw new IllegalArgumentException(MSG_NEGATIVE_PAYMENT_VALUE);
+        }
+
+        if (paymentValue < amount) {
+            throw new IllegalArgumentException(MSG_PAYMENT_VALUE_LESS_THAN_AMOUNT);
+        }
     }
 
     public boolean isPaid() {
