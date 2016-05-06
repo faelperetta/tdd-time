@@ -55,8 +55,7 @@ public class BillTest {
     public void testExchangeWithBankNotesAndCoins() {
         Bill bill = new Bill(200.0);
         List<Double> bankNote = bill.pay(487.67);
-
-        bankNote.forEach(System.out::println);
+        
         Assert.assertEquals(14, bankNote.size());
     }
 
