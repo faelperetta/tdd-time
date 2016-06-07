@@ -59,12 +59,22 @@ public class DiscountCalculator {
     }
 
     private double calcDiscount(List<Book> books) {
-        final double percentage;
         double discount = 0;
 
+        final double percentage = discountPercentage(books);
+
+        for(Book book : books) {
+            discount += book.price() * percentage;
+        }
+
+        return discount;
+    }
+
+    private double discountPercentage(final List<Book> books) {
+        final double percentage;
         if (books.size() == 2) {
             percentage = 0.05;
-        }else if (books.size() == 3) {
+        } else if (books.size() == 3) {
             percentage = 0.1;
         } else if (books.size() == 4) {
             percentage = 0.2;
@@ -73,12 +83,7 @@ public class DiscountCalculator {
         } else {
             percentage = 0.0;
         }
-
-        for(Book book : books) {
-            discount += book.price() * percentage;
-        }
-
-        return discount;
+        return percentage;
     }
 
     protected List<List<Book>> generateCombinations(List<Book> activeGroup, List<Book> restOfBooks, List<List<Book>> combinations) {
